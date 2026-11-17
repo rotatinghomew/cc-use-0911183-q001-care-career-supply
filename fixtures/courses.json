@@ -1,0 +1,14 @@
+[
+  {
+    "id": "course1",
+    "mentor": "p1",
+    "learners": [
+      "p3",
+      "p4"
+    ],
+    "start": "2026-11-01",
+    "end": "2027-01-01",
+    "mentor_minutes": 1200,
+    "skill": "bathing"
+  }
+]

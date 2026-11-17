@@ -1,0 +1,10 @@
+[
+  {
+    "id": "care",
+    "cents_per_hour": 3000
+  },
+  {
+    "id": "manager",
+    "cents_per_hour": 4000
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "a1",
+    "person": "p1",
+    "site": "east",
+    "role": "care",
+    "start": "2025-01-01",
+    "end": "2026-04-01",
+    "minutes_per_month": 9600
+  },
+  {
+    "id": "a2",
+    "person": "p1",
+    "site": "west",
+    "role": "manager",
+    "start": "2026-04-01",
+    "end": null,
+    "minutes_per_month": 9000
+  },
+  {
+    "id": "a3",
+    "person": "p2",
+    "site": "east",
+    "role": "care",
+    "start": "2025-06-01",
+    "end": "2026-08-01",
+    "minutes_per_month": 7200
+  },
+  {
+    "id": "a4",
+    "person": "p2",
+    "site": "west",
+    "role": "care",
+    "start": "2026-10-01",
+    "end": null,
+    "minutes_per_month": 4800
+  },
+  {
+    "id": "a5",
+    "person": "p3",
+    "site": "east",
+    "role": "care",
+    "start": "2026-01-01",
+    "end": null,
+    "minutes_per_month": 8400
+  }
+]

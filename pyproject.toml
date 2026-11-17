@@ -1,0 +1,6 @@
+[project]
+name = "care-career-supply"
+version = "0.1.0"
+description = "转岗返聘与在职培养下的护理人才供给推演的业务数据服务"
+requires-python = ">=3.11"
+dependencies = ["numpy==2.2.6", "scipy==1.15.3"]

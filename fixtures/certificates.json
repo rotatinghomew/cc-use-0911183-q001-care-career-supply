@@ -1,0 +1,23 @@
+[
+  {
+    "id": "c1",
+    "person": "p1",
+    "skill": "bathing",
+    "start": "2025-01-01",
+    "end": "2027-01-01"
+  },
+  {
+    "id": "c2",
+    "person": "p2",
+    "skill": "bathing",
+    "start": "2025-01-01",
+    "end": "2026-12-01"
+  },
+  {
+    "id": "c3",
+    "person": "p3",
+    "skill": "basic",
+    "start": "2026-01-01",
+    "end": "2027-01-01"
+  }
+]
