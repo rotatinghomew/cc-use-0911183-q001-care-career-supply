@@ -8,6 +8,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
 from .app import Application
+from .snapshot import list_snapshots
 from .store import Conflict, Store
 
 
@@ -95,11 +96,13 @@ def handler_for(application):
 
 def main():
     parser = argparse.ArgumentParser(description='本地业务服务与数据核对')
-    parser.add_argument('command', choices=['demo', 'check', 'serve', 'load'])
+    parser.add_argument('command', choices=['demo', 'check', 'serve', 'load', 'supply', 'scenario', 'snapshots'])
     parser.add_argument('--database')
     parser.add_argument('--input')
     parser.add_argument('--port', type=int, default=8765)
     parser.add_argument('--host', default='127.0.0.1')
+    parser.add_argument('--anchor')
+    parser.add_argument('--horizon', type=int, default=6)
     args = parser.parse_args()
     with tempfile.TemporaryDirectory() as directory:
         store = Store(args.database or str(Path(directory) / 'business.sqlite3'))
@@ -112,6 +115,17 @@ def main():
                 print(json_bytes(load_dataset(store, args.input)).decode('utf-8'))
             elif args.command == 'serve':
                 HTTPServer((args.host, args.port), handler_for(application)).serve_forever()
+            elif args.command == 'supply':
+                print(json_bytes(application.supply_analysis({'anchor': args.anchor, 'horizon_months': args.horizon})).decode('utf-8'))
+            elif args.command == 'scenario':
+                if not args.input:
+                    parser.error('scenario 需要 --input 指向方案 JSON')
+                payload = json.loads(Path(args.input).read_text(encoding='utf-8'))
+                payload.setdefault('anchor', args.anchor)
+                payload.setdefault('horizon_months', args.horizon)
+                print(json_bytes(application.scenario_comparison(payload)).decode('utf-8'))
+            elif args.command == 'snapshots':
+                print(json_bytes({'snapshots': list_snapshots(store)}).decode('utf-8'))
             else:
                 value = application.demo() if args.command == 'demo' else application.check()
                 print(json_bytes(value).decode('utf-8'))

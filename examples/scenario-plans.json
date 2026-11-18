@@ -1,0 +1,29 @@
+{
+  "anchor": "2026-11-01",
+  "horizon_months": 6,
+  "demand": {
+    "west": {"bathing": 90000},
+    "east": {"basic": 60000}
+  },
+  "scenarios": [
+    {
+      "id": "base",
+      "label": "维持现状"
+    },
+    {
+      "id": "longer_mentoring",
+      "label": "延长带教时间",
+      "mentor_extra_minutes": {"winter": 600}
+    },
+    {
+      "id": "more_training_seats",
+      "label": "增加进修名额",
+      "extra_learners": {"winter": ["worker012", "worker015"]}
+    },
+    {
+      "id": "rehire_push",
+      "label": "提高返聘参与度",
+      "rehire_rate_override": 0.8
+    }
+  ]
+}
