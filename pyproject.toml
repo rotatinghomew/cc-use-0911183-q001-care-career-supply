@@ -4,3 +4,13 @@ version = "0.1.0"
 description = "转岗返聘与在职培养下的护理人才供给推演的业务数据服务"
 requires-python = ">=3.11"
 dependencies = ["numpy==2.2.6", "scipy==1.15.3"]
+
+[build-system]
+requires = ["setuptools==75.8.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["career"]
+
+[tool.unittest]
+start-directory = "tests"
